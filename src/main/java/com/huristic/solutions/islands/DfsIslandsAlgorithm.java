@@ -34,6 +34,14 @@ public class DfsIslandsAlgorithm implements IslandsAlgorithm {
         return numIslands;
     }
 
+    /**
+     * Depth first search recursive implementation will recursively look for 'legal' cells to visit
+     * Will return when no more cells can be visited.
+     *
+     * @param i {@link int} row index
+     * @param j {@link int} column index
+     * @param matrix {@link int[][]} input matrix
+     */
     private void dfs(int i, int j, int[][] matrix) {
 
         //Mark current cell as visited
@@ -51,6 +59,16 @@ public class DfsIslandsAlgorithm implements IslandsAlgorithm {
         }
     }
 
+    /**
+     * Checks if the cell identified by coordinates (r,c) is legally part of an island
+     * Which basically means the cell exists within the matrix (bounded by matrix indexes) and
+     * has not been visited and contains a value of 1
+     *
+     * @param c {@link int} column index
+     * @param r {@link int} row index
+     * @param matrix {@link int[][]} input matrix
+     * @return {@link boolean} is legal or not
+     */
     private boolean isLegal(int c, int r, int[][] matrix) {
         return c>=0 && r>=0 && r<matrix.length && c<matrix[0].length && matrix[r][c]!=VISITED && matrix[r][c]==1;
     }
